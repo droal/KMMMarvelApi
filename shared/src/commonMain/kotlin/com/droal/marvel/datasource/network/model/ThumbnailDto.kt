@@ -1,9 +1,9 @@
-package com.droal.marvel.api.data.character
+package com.droal.marvel.datasource.network.model
 
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class Thumbnail(
+data class ThumbnailDto(
     val path: String,
     val extension: String
 )

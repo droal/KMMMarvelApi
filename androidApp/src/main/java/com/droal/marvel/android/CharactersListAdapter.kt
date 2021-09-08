@@ -8,7 +8,8 @@ import androidx.core.net.toUri
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.droal.marvel.android.databinding.ListItemCharactersBinding
-import com.droal.marvel.api.data.character.Character
+import com.droal.marvel.datasource.network.model.CharacterDto
+import com.droal.marvel.domain.Character
 
 class CharactersListAdapter(): RecyclerView.Adapter<CharactersListAdapter.CharactersListViewHolder>(){
 
@@ -36,7 +37,8 @@ class CharactersListAdapter(): RecyclerView.Adapter<CharactersListAdapter.Charac
         holder.name.text = item.name
         holder.desc.text = item.description
 
-        val imgUrl: String = item.thumbnail.path+"."+item.thumbnail.extension
+        //val imgUrl: String = item.thumbnailDto.path+"."+item.thumbnailDto.extension
+        val imgUrl: String = item.thumbnailPath
         val imgUri = imgUrl.toUri().buildUpon().scheme("https").build()
         Glide.with(holder.image.context)
             .load(imgUri)

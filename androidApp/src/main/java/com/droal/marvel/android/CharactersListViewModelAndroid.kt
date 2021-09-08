@@ -4,21 +4,21 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import com.droal.marvel.MainKMM
-import com.droal.marvel.api.MarvelAPI
-import com.droal.marvel.api.data.character.Character
-import com.droal.marvel.api.data.character.CharacterDataContainer
+import com.droal.marvel.datasource.network.IMarvelAPI
+import com.droal.marvel.datasource.network.MarvelAPIImpl
+import com.droal.marvel.datasource.network.model.CharacterDto
+import com.droal.marvel.interactors.GetAllCharacters
+import com.droal.marvel.domain.Character
+import com.droal.marvel.datasource.repository.CharacterRepository
 import droal.shareddb.cache.DatabaseDriverFactory
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.launch
 
-class CharactersListViewModel(application: Application): AndroidViewModel(application) {
+class CharactersListViewModelAndroid(application: Application): AndroidViewModel(application) {
 
     private val context = getApplication<Application>().applicationContext
-    private val mainApi = MainKMM(DatabaseDriverFactory(context))
+    //private val mainApi = MainKMM(DatabaseDriverFactory(context))
     private val mainScope = MainScope()
-
 
     private val _characters = MutableLiveData<List<Character>>()
     val characters: LiveData<List<Character>>
@@ -29,7 +29,8 @@ class CharactersListViewModel(application: Application): AndroidViewModel(applic
         get() = _responseMsg
 
 
-    public fun getCharacters(updateData: Boolean){
+
+/*    public fun getCharacters(updateData: Boolean){
         mainScope.launch {
             kotlin.runCatching {
                 mainApi.getAllCharacters(updateData)
@@ -39,5 +40,5 @@ class CharactersListViewModel(application: Application): AndroidViewModel(applic
                 _responseMsg.value = "Error: ${it.localizedMessage}"
             }
         }
-    }
+    }*/
 }

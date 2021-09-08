@@ -25,8 +25,9 @@ dependencies {
     implementation ("androidx.navigation:navigation-ui-ktx:$navVersion")
 
     //ViewModel
-    val lifecycleVersion = properties["version.lifecycle"]
-    implementation ("androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycleVersion")
+    /*val lifecycleVersion = properties["version.lifecycle"]
+    implementation ("androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycleVersion")*/
+    implementation("dev.icerock.moko:mvvm:0.11.0")
 
     // RecyclerView
     val recyclerviewVersion = properties["version.recyclerview"]

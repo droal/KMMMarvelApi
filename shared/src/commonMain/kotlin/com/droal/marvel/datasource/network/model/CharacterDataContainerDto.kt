@@ -1,12 +1,12 @@
-package com.droal.marvel.api.data.character
+package com.droal.marvel.datasource.network.model
 
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class CharacterDataContainer(
+data class CharacterDataContainerDto(
     val offset: Int,
     val limit: Int,
     val total: Int,
     val count: Int,
-    val results: List<Character>
+    val results: List<CharacterDto>
 )

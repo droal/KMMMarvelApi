@@ -1,14 +1,14 @@
-package com.droal.marvel.api.data.character
+package com.droal.marvel.datasource.network.model
 
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class CharacterDataWrapper(
+data class CharacterDataWrapperDto(
     val code: Int,
     val status: String,
     val copyright: String,
     val attributionText: String,
     val attributionHTML: String,
     val etag: String,
-    val data: CharacterDataContainer? = null,
+    val data: CharacterDataContainerDto? = null,
 )

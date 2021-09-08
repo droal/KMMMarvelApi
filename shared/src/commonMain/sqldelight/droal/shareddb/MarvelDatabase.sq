@@ -1,4 +1,4 @@
-CREATE TABLE Character (
+CREATE TABLE Character_Entity (
     id TEXT NOT NULL PRIMARY KEY,
     name TEXT NOT NULL,
     description TEXT,
@@ -7,7 +7,7 @@ CREATE TABLE Character (
     thumbnailId TEXT NOT NULL
 );
 
-CREATE TABLE Thumbnail(
+CREATE TABLE Thumbnail_Entity(
     idThumb TEXT NOT NULL PRIMARY KEY,
     path TEXT NOT NULL,
     extension TEXT NOT NULL
@@ -15,24 +15,24 @@ CREATE TABLE Thumbnail(
 
 
 insertCharacter:
-INSERT INTO Character(id, name, description, modified, resourceURI, thumbnailId)
+INSERT INTO Character_Entity(id, name, description, modified, resourceURI, thumbnailId)
 VALUES(?, ?, ?, ?, ?, ?);
 
 insertThumbnail:
-INSERT INTO Thumbnail(idThumb, path, extension)
+INSERT INTO Thumbnail_Entity(idThumb, path, extension)
 VALUES(?, ?, ?);
 
 removeAllCharacters:
-DELETE FROM Character;
+DELETE FROM Character_Entity;
 
 removeAllThumbnail:
-DELETE FROM Thumbnail;
+DELETE FROM Thumbnail_Entity;
 
 selectAllCharacters:
-SELECT Character.*, Thumbnail.*
-FROM Character
-INNER JOIN Thumbnail ON Thumbnail.idThumb == Character.thumbnailId;
+SELECT Character_Entity.*, Thumbnail_Entity.*
+FROM Character_Entity
+INNER JOIN Thumbnail_Entity ON Thumbnail_Entity.idThumb == Character_Entity.thumbnailId;
 
 selectCharacterById:
-SELECT * FROM Character
+SELECT * FROM Character_Entity
 WHERE id = ?;

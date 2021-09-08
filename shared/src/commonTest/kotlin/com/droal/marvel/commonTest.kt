@@ -1,6 +1,5 @@
 package com.droal.marvel
 
-import com.droal.marvel.api.MarvelAPI
 import kotlin.test.Test
 import kotlin.test.assertTrue
 
