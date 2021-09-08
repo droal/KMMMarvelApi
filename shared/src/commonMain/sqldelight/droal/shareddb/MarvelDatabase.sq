@@ -1,0 +1,38 @@
+CREATE TABLE Character (
+    id TEXT NOT NULL PRIMARY KEY,
+    name TEXT NOT NULL,
+    description TEXT,
+    modified TEXT,
+    resourceURI TEXT,
+    thumbnailId TEXT NOT NULL
+);
+
+CREATE TABLE Thumbnail(
+    idThumb TEXT NOT NULL PRIMARY KEY,
+    path TEXT NOT NULL,
+    extension TEXT NOT NULL
+);
+
+
+insertCharacter:
+INSERT INTO Character(id, name, description, modified, resourceURI, thumbnailId)
+VALUES(?, ?, ?, ?, ?, ?);
+
+insertThumbnail:
+INSERT INTO Thumbnail(idThumb, path, extension)
+VALUES(?, ?, ?);
+
+removeAllCharacters:
+DELETE FROM Character;
+
+removeAllThumbnail:
+DELETE FROM Thumbnail;
+
+selectAllCharacters:
+SELECT Character.*, Thumbnail.*
+FROM Character
+INNER JOIN Thumbnail ON Thumbnail.idThumb == Character.thumbnailId;
+
+selectCharacterById:
+SELECT * FROM Character
+WHERE id = ?;
