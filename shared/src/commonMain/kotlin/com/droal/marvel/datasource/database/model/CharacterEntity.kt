@@ -10,7 +10,7 @@ fun SelectAllCharacters.toCharacter(): Character{
         description = description,
         modified = modified,
         resourceURI = resourceURI,
-        thumbnailPath = path+"."+extension,
+        thumbnailPath = path,
         urls = "",
         comics = "",
         stories = "",

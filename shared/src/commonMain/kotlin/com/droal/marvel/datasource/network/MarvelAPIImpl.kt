@@ -17,7 +17,6 @@ class MarvelAPIImpl(
         val response: CharacterDataWrapperDto = httpClient.get(EndPoints.ALL_CHARACTERS)
         val container = response.data
         val characters = container?.results
-        //return Response<response.dataDto?.results> ?: Response.Success(emptyList())
         return if (characters != null) {
             Response.Success(characters.map{it.toCharacter()})
         }else{

@@ -5,10 +5,7 @@ import droal.shareddb.SelectAllCharacters
 import droal.shareddb.cache.Database
 import droal.shareddb.cache.DatabaseDriverFactory
 
-//class DatabaseSourceImpl(private val database: Database?): IDatabaseSource {
-class DatabaseSourceImpl(private val databaseDriverFactory: DatabaseDriverFactory): IDatabaseSource {
-
-    private val database = Database(databaseDriverFactory)
+class DatabaseSourceImpl(private val database: Database?): IDatabaseSource {
 
     override suspend fun clearDatabase() {
         database?.clearDatabase()

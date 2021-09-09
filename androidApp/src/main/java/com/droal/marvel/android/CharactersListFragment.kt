@@ -34,7 +34,7 @@ class CharactersListFragment : Fragment() {
         binding.button.setOnClickListener(object : View.OnClickListener {
             override fun onClick(view: View?) {
                 //viewmodel.getCharacters(false)
-                sharedViewModel.getCharactersList()
+                sharedViewModel.getCharactersList(true)
             }
         })
 
@@ -46,7 +46,7 @@ class CharactersListFragment : Fragment() {
         sharedViewModel.getCharactersLiveData.addObserver(charactersListObserver)
 
         //viewmodel.getCharacters(false)
-        sharedViewModel.getCharactersList()
+        sharedViewModel.getCharactersList(false)
 
         return view
     }

@@ -9,8 +9,7 @@ CREATE TABLE Character_Entity (
 
 CREATE TABLE Thumbnail_Entity(
     idThumb TEXT NOT NULL PRIMARY KEY,
-    path TEXT NOT NULL,
-    extension TEXT NOT NULL
+    path TEXT NOT NULL
 );
 
 
@@ -19,8 +18,8 @@ INSERT INTO Character_Entity(id, name, description, modified, resourceURI, thumb
 VALUES(?, ?, ?, ?, ?, ?);
 
 insertThumbnail:
-INSERT INTO Thumbnail_Entity(idThumb, path, extension)
-VALUES(?, ?, ?);
+INSERT INTO Thumbnail_Entity(idThumb, path)
+VALUES(?, ?);
 
 removeAllCharacters:
 DELETE FROM Character_Entity;

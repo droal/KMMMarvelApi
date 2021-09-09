@@ -11,12 +11,31 @@ class GetAllCharacters(
 ) {
 
     @Throws(Exception::class)
-    suspend fun getAllCharacters(updateData: Boolean): Response<List<Character>>{
-        val list: Response<List<Character>> = repository.getAllCharactersFromNetwork()
-        //val s: Response.Success<List<Character>> = Response.Success(list)
+    suspend fun getAllCharacters(updateData: Boolean): Response<List<Character>> {
+        val charactersDB = getAllCharactersDB()
 
-        return list
+        return if (charactersDB.isNotEmpty() && !updateData) {
+            Response.Success(charactersDB)
+        } else {
+            getAllCharactersNetwork()
+        }
+    }
 
+    @Throws(Exception::class)
+    suspend fun getAllCharactersNetwork(): Response<List<Character>>{
+        val response: Response<List<Character>> = repository.getAllCharactersFromNetwork()
+        repository.clearDatabase()
+
+        if (response is Response.Success){
+            repository.insertCharactersInDB(response.data)
+        }
+        return response
+    }
+
+    @Throws(Exception::class)
+    suspend fun getAllCharactersDB(): List<Character> {
+        val charactersDB = repository.getAllCharactersFromDB()
+        return charactersDB
     }
 
     /*@Throws(Exception::class)

@@ -35,6 +35,10 @@ dependencies {
 
     implementation ("com.github.bumptech.glide:glide:4.12.0")
     annotationProcessor ("com.github.bumptech.glide:compiler:4.12.0")
+
+    // MULTI DEX
+    implementation ("androidx.multidex:multidex:2.0.0")
+
 }
 
 android {

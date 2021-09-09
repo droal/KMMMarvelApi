@@ -10,11 +10,11 @@ import droal.shareddb.SelectAllCharacters
 import io.ktor.http.cio.*
 
 class CharacterRepository(
-    //private val dbDataSource: IDatabaseSource,
+    private val dbDataSource: IDatabaseSource,
     private val networkDataSource: IMarvelAPI
 ) {
 
-/*    suspend fun getAllCharactersFromDB(): List<Character> {
+    suspend fun getAllCharactersFromDB(): List<Character> {
         return dbDataSource.getAllCharacters().map { it.toCharacter() }
     }
 
@@ -25,10 +25,9 @@ class CharacterRepository(
 
     suspend fun insertCharactersInDB(characters: List<Character>){
         dbDataSource.insertCharactersInDB(characters)
-    }*/
+    }
 
     suspend fun getAllCharactersFromNetwork(): Response<List<Character>> {
-        //val response = networkDataSource.getCharacters()
         return networkDataSource.getCharacters()
     }
 }

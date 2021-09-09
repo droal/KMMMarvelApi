@@ -1,6 +1,6 @@
 package com.droal.marvel.viewmodel
 
-import com.droal.marvel.dependencyInjection.KodeinInjector
+import com.droal.marvel.di.KodeinInjector
 import com.droal.marvel.domain.Character
 import com.droal.marvel.interactors.GetAllCharacters
 import com.droal.marvel.util.Response
@@ -25,11 +25,11 @@ class CharactersListViewModel : ViewModel() {
     private val getAllCharactersInteractor by KodeinInjector.instance<GetAllCharacters>()
 
 
-    fun getCharactersList() {
+    fun getCharactersList(updateData: Boolean) {
         viewModelScope.launch() {
             getCharactersLiveData.postValue(LoadingGetCharacterListState())
 
-            val response = getAllCharactersInteractor.getAllCharacters(false)
+            val response = getAllCharactersInteractor.getAllCharacters(updateData)
             processCharactersListResponse(response)
         }
     }

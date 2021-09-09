@@ -9,22 +9,5 @@ import io.ktor.client.features.json.serializer.KotlinxSerializer
 import kotlinx.serialization.json.Json
 
 abstract class  IMarvelAPI {
-
     abstract suspend fun getCharacters(): Response<List<Character>>
-
-/*    companion object HttpClient{
-        fun build(): IMarvelAPI{
-            return MarvelAPIImpl(
-                httpClient = HttpClient{
-                    install(JsonFeature) {
-                        val json = Json {
-                            ignoreUnknownKeys = true
-                            useAlternativeNames = false
-                        }
-                        serializer = KotlinxSerializer(json)
-                    }
-                }
-            )
-        }
-    }*/
 }
