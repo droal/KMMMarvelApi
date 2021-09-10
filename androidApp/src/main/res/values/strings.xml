@@ -2,4 +2,8 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="character_image">Character image</string>
+
+    <string name="bottom_nav_characters">Characters</string>
+    <string name="bottom_nav_comics">Comics</string>
+    <string name="bottom_nav_creators">Creators</string>
 </resources>

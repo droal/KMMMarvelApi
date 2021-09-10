@@ -1,6 +1,6 @@
 package droal.shareddb.cache
 
-import com.droal.marvel.domain.Character
+import com.droal.marvel.characters.domain.Character
 import com.squareup.sqldelight.db.SqlDriver
 import droal.shareddb.MarvelDatabase
 import droal.shareddb.SelectAllCharacters

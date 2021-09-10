@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/callsListFragment"
+        android:icon="@drawable/creator"
+        android:title="@string/bottom_nav_creators"/>
+
+    <item
+        android:id="@+id/charactersListFragment"
+        android:icon="@drawable/character"
+        android:title="@string/bottom_nav_characters"/>
+
+    <item
+        android:id="@+id/comicsListFragment"
+        android:icon="@drawable/comic"
+        android:title="@string/bottom_nav_comics"/>
+
+</menu>
