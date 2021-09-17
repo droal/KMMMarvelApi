@@ -6,10 +6,6 @@ import com.droal.marvel.characters.datasource.network.IMarvelAPI
 import com.droal.marvel.characters.datasource.network.MarvelAPIImpl
 import com.droal.marvel.characters.datasource.repository.CharacterRepository
 import com.droal.marvel.characters.interactors.GetAllCharacters
-import com.droal.marvel.comics.datasource.network.IMarvelComicsAPI
-import com.droal.marvel.comics.datasource.network.MarvelComicsAPIImpl
-import com.droal.marvel.comics.datasource.repository.ComicsRepository
-import com.droal.marvel.comics.interactors.GetAllComics
 import droal.shareddb.cache.DatabaseCreator
 import io.ktor.client.*
 import io.ktor.client.features.json.*
@@ -39,7 +35,6 @@ val KodeinInjector = DI{
      * NETWORK DATA SOURCE
      */
     bind<IMarvelAPI>() with provider { MarvelAPIImpl(httpClient)}
-    bind<IMarvelComicsAPI>() with provider { MarvelComicsAPIImpl(httpClient)}
 
     /**
      * Disk Data Source
@@ -51,11 +46,9 @@ val KodeinInjector = DI{
      * REPOSITORIES
      */
     bind<CharacterRepository>() with provider { CharacterRepository(instance(), instance()) }
-    bind<ComicsRepository>() with provider { ComicsRepository(instance()) }
 
     /**
      * USECASES
      */
     bind<GetAllCharacters>() with singleton { GetAllCharacters(instance()) }
-    bind<GetAllComics>() with singleton { GetAllComics(instance()) }
 }

@@ -9,3 +9,4 @@ pluginManagement {
 rootProject.name = "Marvel"
 include(":androidApp")
 include(":shared")
+include(":comics")

@@ -1,9 +1,10 @@
 package com.droal.marvel.comics.viewmodel
 
-import com.droal.marvel.di.KodeinInjector
+
 import com.droal.marvel.comics.domain.Comic
 import com.droal.marvel.comics.interactors.GetAllComics
 import com.droal.marvel.comics.util.ResponseComic
+import com.droal.marvel.di.KodeinInjectorComics
 import dev.icerock.moko.mvvm.livedata.MutableLiveData
 import dev.icerock.moko.mvvm.viewmodel.ViewModel
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -17,7 +18,7 @@ class ComicsListViewModel : ViewModel() {
     var getComicsLiveData =
         MutableLiveData<ComicsListState>(LoadingGetComicListState())
 
-    private val getAllComicsInteractor by KodeinInjector.instance<GetAllComics>()
+    private val getAllComicsInteractor by KodeinInjectorComics.instance<GetAllComics>()
 
     fun getComicsList() {
         viewModelScope.launch() {

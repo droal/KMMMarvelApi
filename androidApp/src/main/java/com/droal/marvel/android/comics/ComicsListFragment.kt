@@ -9,8 +9,7 @@ import androidx.lifecycle.ViewModelProviders
 import com.droal.marvel.android.databinding.FragmentComicsListBinding
 import com.droal.marvel.comics.util.ResponseComic
 import com.droal.marvel.comics.viewmodel.*
-import com.droal.marvel.comics.viewmodel.ComicsListState
-import com.droal.marvel.comics.viewmodel.ComicsListViewModel
+
 
 class ComicsListFragment : Fragment() {
     lateinit var sharedViewModel: ComicsListViewModel

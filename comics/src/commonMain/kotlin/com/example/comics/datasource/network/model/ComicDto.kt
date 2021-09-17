@@ -1,10 +1,9 @@
 package com.droal.marvel.comics.datasource.network.model
 
-import com.droal.marvel.characters.datasource.network.model.CharacterDto
-import com.droal.marvel.characters.domain.Character
 import com.droal.marvel.comics.domain.Comic
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.Transient
+
 
 @Serializable
 data class ComicDto(
